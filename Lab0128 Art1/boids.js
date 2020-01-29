@@ -2,7 +2,7 @@ class Boids{
   constructor(x,y,dx,dy){
     this.loc = createVector(x,y);
     this.vel = createVector(dx,dy);
-    this.acc = createVector(0,0.5);
+    this.acc = createVector(0,0.3);
     this.clr = color(random(255),random(255),random(255));
 
   }
@@ -33,9 +33,24 @@ class Boids{
   update(){
     this.vel.add(this.acc);
     this.loc.add(this.vel);
+
+    // var distToBoids;
+    // for(var i = 0; i < boids.length-1; i++){
+    //   distToBoids = boids[i].loc.dist(boids[i+1].loc);
+    //   if(distToBoids < 200){
+    //     fill(this.clr);
+    //     line(boids[i].loc.x,boids[i].loc.y,boids[i+1].loc.x,boids[i+1].loc.y);
+    //   }
+    // }
   }
   render(){
-    fill(this.clr);
-    ellipse(this.loc.x,this.loc.y,20,20)
+    var distToBoids;
+    for(var i = 0; i < boids.length-1; i++){
+      distToBoids = boids[i].loc.dist(boids[i+1].loc);
+      if(distToBoids < 200){
+        fill(this.clr);
+        line(boids[i].loc.x,boids[i].loc.y,boids[i+1].loc.x,boids[i+1].loc.y);
+      }
+    }
   }
 }
