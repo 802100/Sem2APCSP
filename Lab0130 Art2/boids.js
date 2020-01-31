@@ -4,8 +4,11 @@ class Boids{
     this.vel = createVector(dx,dy);
     this.acc = createVector(0,0.1);
     this.clr = color(random(255),random(255),random(255));
+    this.rad = 30;
+  
 
   }
+
 
   run(){
     this.checkEdges();
@@ -31,23 +34,22 @@ class Boids{
   }
 
   update(){
-  //  this.vel.add(this.acc);
-    this.loc.add(this.vel);
-
-    for(var i = 0; i < boids.length; i++){
-      
+    //this.vel.add(this.acc);
+    this.vel.limit(4);
+    //this.loc.add(this.vel);
+    for(var i = 0; i < boids.length-1; i++){
+      var distToBoids = this.loc.dist(boids[i].loc);
+      if(this.rad + boids[i].rad > distToBoids){
+        boids[i].render();
+      }
     }
-    var distToBoid =
-
 
   }
   render(){
+
     fill(this.clr);
-    push();
-    translate(boids[0].loc.x,boids[0].loc.y);
-    this.angle = this.vel.heading() + PI/2;
-    rotate(this.angle);
-    ellipse(20,20,this.loc.x,this.loc.y);
-    pop();
+    ellipse(this.loc.x,this.loc.y,this.rad,this.rad);
+
+
   }
 }

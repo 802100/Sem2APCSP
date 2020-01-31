@@ -3,6 +3,7 @@
 //  This is a comment
 //  The setup function function is called once when your program begins
 var boids = [];
+var orbiters = [];
 
 function setup() {
   var cnv = createCanvas(800, 800);
@@ -10,6 +11,7 @@ function setup() {
   background(250);
   fill(200, 30, 150);
   loadBoids(5);
+  loadOrbiters(20);
 
 
 }
@@ -18,7 +20,8 @@ function setup() {
 function draw() {
   background(250);
   runBoids();
-
+  runOrbiters()
+;
 
 
 
@@ -35,5 +38,17 @@ function loadBoids(n){
 function runBoids(){
   for(var i = 0; i < boids.length; i++){
     boids[i].run();
+  }
+}
+
+function loadOrbiters(n){
+  for(var i = 0 ; i < n; i++){
+    orbiters[i] = new Orbiters(random(width),random(height),random(-8,8),random(-8,8));
+  }
+}
+
+function runOrbiters(){
+  for(var i = 0; i < orbiters.length; i++){
+    orbiters[i].run();
   }
 }
