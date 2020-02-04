@@ -5,7 +5,7 @@ class Boids{
     this.acc = createVector(0,0.1);
     this.clr = color(random(255),random(255),random(255));
     this.rad = 30;
-  
+
 
   }
 
@@ -34,15 +34,29 @@ class Boids{
   }
 
   update(){
-    //this.vel.add(this.acc);
+    this.vel.add(this.acc);
     this.vel.limit(4);
     //this.loc.add(this.vel);
-    for(var i = 0; i < boids.length-1; i++){
-      var distToBoids = this.loc.dist(boids[i].loc);
-      if(this.rad + boids[i].rad > distToBoids){
-        boids[i].render();
+    for(var i = 0; i < orbiters.length-1; i++){
+      var distToBoids = this.loc.dist(orbiters[i].loc);
+      if(distToBoids < 200){
+        stroke(this.clr);
+        line(this.loc.x,this.loc.y, orbiters[i].loc.x, orbiters[i].loc.y,random(255));
       }
+      // if(distToBoids < 450){
+      //     //add atraction
+      //     this.acc = p5.Vector.sub(this.loc, orbiters[i].loc);
+      //     this.acc.normalize();
+      //     this.acc.mult(0.1);
+      //   }
+      //   if(distToBoids < 150){
+      //     //add atraction
+      //     this.acc = p5.Vector.sub( orbiters[i].loc, this.loc);
+      //     this.acc.normalize();
+      //     this.acc.mult(0.5);
+      //   }
     }
+
 
   }
   render(){
