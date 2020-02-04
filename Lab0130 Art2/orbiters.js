@@ -55,7 +55,7 @@ this.render();
   }
 
   render(){
-  fill(250);
-  ellipse(this.loc.x,this.loc.y,this.rad*2,this.rad*2);
+  // fill(250);
+  // ellipse(this.loc.x,this.loc.y,this.rad*2,this.rad*2);
   }
 }
