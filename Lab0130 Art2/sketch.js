@@ -10,7 +10,7 @@ function setup() {
   cnv.position((windowWidth-width)/2, 30);
   background(20);
   fill(200, 30, 150);
-  loadBoids(6);
+  loadBoids(10);
   loadOrbiters(20);
 
 
