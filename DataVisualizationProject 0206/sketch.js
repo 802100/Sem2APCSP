@@ -5,20 +5,21 @@
 var statsArray = [];
 var playerSel;
 var players = [];
-var headerHeight = 200;
+var headerHeight = 150;
 var chosenPlayers;
+var points = [];
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(220);
   fill(200, 30, 150);
+  createPlayerSelectionList();
 
 
 }
 
 //  The draw function is called @ 30 fps
 function draw() {
-createPlayerSelectionList();
 getSelectedPlayers();
 loadPlayerStats();
 
@@ -31,6 +32,9 @@ function createPlayerSelectionList() {
   playerSel.position((windowWidth-width)/2 + 270, (windowHeight-height)/2 + 40);
   // locate at 270,40 in canvas coordinates
   playerSel.size(150,headerHeight-50);
+  playerSel.option(players[2403]);
+  playerSel.option(players[3468]);
+
   }
 
 // abstract the UI control away, put the chosen player(s) in the array chosenPlayers
