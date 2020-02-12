@@ -5,41 +5,63 @@
 var statsArray = [];
 var playerSel;
 var players = [];
-var headerHeight = 150;
+var headerHeight = 105;
 var chosenPlayers;
 var points = [];
+var statX;
+var statY;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
   background(220);
   fill(200, 30, 150);
+  loadStats();
   createPlayerSelectionList();
+  lables();
  //loadPoints();
 
 }
 
 //  The draw function is called @ 30 fps
 function draw() {
-getSelectedPlayers();
-loadPlayerStats();
+  graph();
+  getSelectedPlayers();
+  loadPlayerStats(chosenPlayers);
 
 
+
+}
+function graph(){
+  strokeWeight(6);
+  stroke(0);
+  line(100,300,100,700);
+  line(100,700,700,700);
+}
+
+function lables(){
+  //choose player header
+  fill(0);
+  textSize(23);
+  text("Choose a Player:",100,120);
+  //graph lables
 
 }
 //outline of the loadPoint function, incomplete
 function loadPoints(n){
   for(var i = 0; i < n; i++){
-    points[i] = new Point()
+    points[i] = new Point(statX,statY);
   }
 }
 
 function createPlayerSelectionList() {
   playerSel = createSelect(true);
-  playerSel.position((windowWidth-width)/2 + 270, (windowHeight-height)/2 + 40);
+  playerSel.position((windowWidth-width)/2 + 100, (windowHeight-height)/2 + 20);
   // locate at 270,40 in canvas coordinates
   playerSel.size(150,headerHeight-50);
   playerSel.option(players[2403]);
   playerSel.option(players[3468]);
+  playerSel.option(players[2316]);
+  playerSel.changed(getSelectedPlayers);
 
   }
 
@@ -59,3 +81,9 @@ function loadPlayerStats(player) {
     statsArray = stats.findRows(player+"*", 2);
   }
 }
+//code below is not complete
+// collect stats into arrays for generic approach to graphing
+//function aggregateStats(player, stat) {
+  //results = [];
+ //for (var i =0; i<statsArray.length; i++) {
+//}
