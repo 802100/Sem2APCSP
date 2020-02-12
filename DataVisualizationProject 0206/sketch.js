@@ -14,7 +14,7 @@ function setup() {
   background(220);
   fill(200, 30, 150);
   createPlayerSelectionList();
-
+ //loadPoints();
 
 }
 
@@ -25,6 +25,12 @@ loadPlayerStats();
 
 
 
+}
+//outline of the loadPoint function, incomplete
+function loadPoints(n){
+  for(var i = 0; i < n; i++){
+    points[i] = new Point()
+  }
 }
 
 function createPlayerSelectionList() {
