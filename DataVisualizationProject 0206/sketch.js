@@ -1,4 +1,4 @@
-//  Your Name
+//  Evangeline Viray
 // 	Date or version number
 //  This is a comment
 //  The setup function function is called once when your program begins
@@ -18,7 +18,7 @@ function setup() {
   loadStats();
   createPlayerSelectionList();
   lables();
- //loadPoints();
+ loadPoints(2);
 
 }
 
@@ -27,6 +27,7 @@ function draw() {
   graph();
   getSelectedPlayers();
   loadPlayerStats(chosenPlayers);
+  drawPoints();
 
 
 
@@ -44,15 +45,27 @@ function lables(){
   textSize(23);
   text("Choose a Player:",100,120);
   //graph lables
-
+  textSize(20);
+  text("Year", 390,760);
+  //0
+  text("0", 60,700);
 }
+
 //outline of the loadPoint function, incomplete
 function loadPoints(n){
-  for(var i = 0; i < n; i++){
-    points[i] = new Point(statX,statY);
+  for(var i = 0; i<n; i++){
+      points[i] = new Point(0,400);
   }
 }
 
+//draw points
+function drawPoints(){
+  for(var i = 0; i < points.length ; i++){
+    points[i].render();
+  }
+}
+
+//create multy selction list for players
 function createPlayerSelectionList() {
   playerSel = createSelect(true);
   playerSel.position((windowWidth-width)/2 + 100, (windowHeight-height)/2 + 20);
@@ -73,6 +86,7 @@ function getSelectedPlayers() {
   }
 }
 
+//get player stats based on selected players
 function loadPlayerStats(player) {
   // column 2 has the player's name in the stats table
   statsArray = stats.findRows(player, 2);
