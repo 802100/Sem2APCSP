@@ -1,13 +1,13 @@
 class Point{
   constructor(x,y){
     this.loc = createVector(x,y);
-    this.clr = color(0);
-    this.y = map(500, 300, 700, 0, 400);
+    this.clr = color(225);
+    this.y = map(this.loc.y, 700, 300, 0, 700);
   }
 
   render(){
     fill(0);
-    ellipse(this.y,this.loc.y,10,10)
+    ellipse(this.loc.x,this.y,4,4)
   }
 
 

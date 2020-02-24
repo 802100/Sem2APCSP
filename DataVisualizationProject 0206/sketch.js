@@ -1,5 +1,5 @@
 //  Evangeline Viray
-// 	Date or version number
+// 	0206 DataVis.Proj.
 //  This is a comment
 //  The setup function function is called once when your program begins
 var statsArray = [];
@@ -8,17 +8,17 @@ var players = [];
 var headerHeight = 105;
 var chosenPlayers;
 var points = [];
-var statX;
-var statY;
+var statVal = 400;
+var statsToPlot = 15;
 function setup() {
   var cnv = createCanvas(800, 800);
   cnv.position((windowWidth-width)/2, 30);
-  background(220);
+  background(10);
   fill(200, 30, 150);
   loadStats();
   createPlayerSelectionList();
   lables();
- loadPoints(2);
+ loadPoints(statsToPlot);
 
 }
 
@@ -33,28 +33,33 @@ function draw() {
 
 }
 function graph(){
-  strokeWeight(6);
-  stroke(0);
-  line(100,300,100,700);
-  line(100,700,700,700);
+  strokeWeight(3);
+  stroke(225);
+  line(50,300,50,700);
+  line(50,700,750,700);
 }
 
 function lables(){
   //choose player header
-  fill(0);
+  fill(220);
   textSize(23);
   text("Choose a Player:",100,120);
   //graph lables
   textSize(20);
   text("Year", 390,760);
   //0
-  text("0", 60,700);
+  text("0", 20,700);
+  //dates
+  for(var i = 0; i < statVal; i++){
+    textSize(13);
+    text(statVal,750/statsToPlot*(i+1),720)
+  }
 }
 
 //outline of the loadPoint function, incomplete
 function loadPoints(n){
   for(var i = 0; i<n; i++){
-      points[i] = new Point(0,400);
+      points[i] = new Point(750/statsToPlot*(i+1), statVal);
   }
 }
 
@@ -62,6 +67,12 @@ function loadPoints(n){
 function drawPoints(){
   for(var i = 0; i < points.length ; i++){
     points[i].render();
+  }
+  for(var i = points.length-1; i > 0; i--){
+    strokeWeight(1);
+    //stroke(random(255),random(255),random(255));
+    stroke(225);
+    line(points[i].loc.x,points[i].y,points[i-1].loc.x,points[i-1].y);
   }
 }
 
@@ -97,7 +108,9 @@ function loadPlayerStats(player) {
 }
 //code below is not complete
 // collect stats into arrays for generic approach to graphing
-//function aggregateStats(player, stat) {
-  //results = [];
- //for (var i =0; i<statsArray.length; i++) {
-//}
+function aggregateStats(player, stat) {
+  results = [];
+ for (var i =0; i<statsArray.length; i++) {
+
+ }
+}
