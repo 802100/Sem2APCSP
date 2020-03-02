@@ -10,11 +10,16 @@ class Poison{
   run(){
     this.checkEdges();
     this.render();
+    for(var i = poison.length-1; i > 0; i--){
+      if(poison[i].loc.x === snake.head.x){
+        console.log("same x");
+      }
+    }
   }
 // snake eats apple?
   isColliding(){
     for(var i = poison.length -1; i > 0; i--){
-      console.log(i);
+      //console.log(i);
       if(poison[i].loc.x === snake.head.x &&
         poison[i].loc.y === snake.head.y){
           return true;
