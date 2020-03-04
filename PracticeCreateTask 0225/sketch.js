@@ -64,7 +64,6 @@ function titleScreen(){
   if(mouseIsPressed &&
     mouseX>200 && mouseX<280 &&
     mouseY>600 && mouseY<640){
-      p = 1;
       mode = "easy";
       gameState = 2;
     }
@@ -72,7 +71,6 @@ function titleScreen(){
   if(mouseIsPressed &&
     mouseX>350 && mouseX<430 &&
     mouseY>600 && mouseY<640){
-      p = 1;
       mode = "med";
       gameState = 2;
     }
@@ -80,7 +78,6 @@ function titleScreen(){
   if(mouseIsPressed &&
     mouseX>500 && mouseX<580 &&
     mouseY>600 && mouseY<640){
-      p = 1;
       mode = "hard";
       gameState = 2;
     }
@@ -134,6 +131,7 @@ function endGame(){
   //reset key(spacebar)
   if(keyCode === 32){
     loadFood();
+    poison = [];
     p = 1;
     loadPoison(p);
     loadSnake();

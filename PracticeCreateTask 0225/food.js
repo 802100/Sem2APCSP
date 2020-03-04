@@ -48,6 +48,12 @@ class Food{
       console.log("colliding with body");
       loadFood();
     }
+
+    if(food.loc.x > 800 &&
+      food.loc.y>800){
+        console.log("food off screen");
+        loadFood();
+      }
   }
 
   render(){

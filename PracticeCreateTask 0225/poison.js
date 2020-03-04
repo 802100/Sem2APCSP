@@ -15,7 +15,7 @@ class Poison{
 // snake eats apple?
   isColliding(n){
     if(poison[n].loc.x === snake.head.x &&
-        poison[n].loc.y === snake.head.y){
+      poison[n].loc.y === snake.head.y){
           return true;
         }else{
           return false;
@@ -26,7 +26,6 @@ class Poison{
   //poison appears on food?
   appearOnFood(){
     for(var i = poison.length -1; i > 0; i--){
-      //console.log(i);
       if(poison[i].loc.x === food.x &&
         poison[i].loc.y === food.y){
           return true;
@@ -38,7 +37,7 @@ class Poison{
 
   checkEdges(){
     //if poison is being eaten - load new food, update score
-    for(var i = poison.length-1; i > 0; i--){
+    for(var i = 0; i < poison.length; i++){
       if(poison[i].isColliding(i)){
       //  console.log("poison is colliding");
         loadFood();
