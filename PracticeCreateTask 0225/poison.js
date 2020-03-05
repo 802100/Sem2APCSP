@@ -24,16 +24,14 @@ class Poison{
 
   }
   //poison appears on food?
-  appearOnFood(){
-    for(var i = poison.length -1; i > 0; i--){
-      if(poison[i].loc.x === food.x &&
-        poison[i].loc.y === food.y){
-          return true;
-        }else{
-          return false;
-        }
+  appearOnFood(n){
+    if(poison[n].loc.x === food.x &&
+      poison[n].loc.y === food.y){
+        return true;
+      }else{
+        return false;
+      }
     }
-  }
 
   checkEdges(){
     //if poison is being eaten - load new food, update score
@@ -50,7 +48,7 @@ class Poison{
   }
     //if food appears on body - reload
     for(var i = 0; i < poison.length; i++){
-      if(poison[i].appearOnFood()){
+      if(poison[i].appearOnFood(i)){
         console.log("colliding with food");
         poison[i].loc.x = colW*Math.floor(random(20));
       }

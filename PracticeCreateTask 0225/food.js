@@ -49,11 +49,33 @@ class Food{
       loadFood();
     }
 
-    if(food.loc.x > 800 &&
-      food.loc.y>800){
+    //if food is of screen, reload food
+    if(this.loc.x > 800 &&
+      this.loc.y>800){
         console.log("food off screen");
         loadFood();
       }
+    if(this.loc.x < 0 &&
+      this.loc.y < 0){
+        console.log("off screen");
+        loadFood();
+      }
+    if(this.loc.x > 800){
+      console.log("off screen");
+      loadFood();
+    }
+    if(this.loc.y > 800){
+      console.log("off screen");
+      loadFood();
+    }
+    if(this.loc.x < 0){
+      console.log("off screen");
+      loadFood();
+    }
+    if(this.loc.y < 0){
+      console.log("off screen");
+      loadFood();
+    }
   }
 
   render(){
