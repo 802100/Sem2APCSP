@@ -54,7 +54,7 @@ function titleScreen(){
   //instructions
   textSize(16);
   fill(255);
-  text("                    Use the arrow keys to controll the snake\n" +
+  text("                      Use the arrow keys to controll the snake\n" +
    "     Eat the apples to grow and earn points, don't eat the bad apples \n" +
    "Don't run into your body or the edges of the screen otherwise you lose", 155,400);
    fill(250,0,250);
