@@ -35,11 +35,12 @@ class Ball{
 
   checkEdges(){
     //if colliding with paddle and velocity is negative
-    if(this.id < 1){
+    if(this.id >= 0){
       for(var i = balls.length -1; i >= 0; i--){
         if(balls[i].isColliding() && balls[i].vel.y < 0){
           console.log("collision");
           lives = lives - 1;
+          h = h+1;
           loadBalls(b + 3);
           clear();
         }
@@ -67,7 +68,7 @@ class Ball{
 
 
     //if mainball hits the paddle, lose game
-  }else if(this.id > 0){
+  }else if(this.id === -1){
       if(mainball.isColliding()){
         console.log("collision");
         gameState = 6;
@@ -97,10 +98,10 @@ class Ball{
     this.loc.add(this.vel);
   }
   render(){
-    if(this.id > 0){
+    if(this.id >= 0){
       fill(this.clr);
       ellipse(this.loc.x,this.loc.y,this.w,this.w);
-    }else{
+    }else if(this.id === -1){
       fill(255,0,0);
       ellipse(this.loc.x,this.loc.y,50,50);
     }

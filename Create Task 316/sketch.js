@@ -3,6 +3,7 @@
 //  This is a comment
 //this is a coment
 var balls = []
+var healing = []
 var mainball;
 var paddle;
 var gameState = 1;
@@ -16,6 +17,7 @@ var btnMed;
 var btnHard;
 var btnRestart;
 var b = 5;
+var h = 0;
 
 
 //  The setup function function is called once when your program begins
@@ -142,6 +144,7 @@ function endGame(){
   if(mouseIsPressed &&
     mouseX>190 && mouseX<380 &&
     mouseY>500 && mouseY<550){
+      h = 0;
       b = 5;
       loadBalls(b);
       gameState = 1;
@@ -212,13 +215,19 @@ function loadBalls(n){
   for(var i = 0; i < n; i++){
     balls[i] = new Ball(random(width),200,random(-5,5),random(-5,5), i);
   }
+
+  for(var i = 0; i < h; i++){
+    healing[i] = new Healing(random(width), 200, random(-5,5))
+  }
 }
 
 function runBalls(){
   mainball.run();
   for(var i = 0; i < balls.length; i++){
     balls[i].run();
-
+  }
+  for(var i = 0; i < healing.length; i++){
+    healing[i].run();
   }
 }
 
