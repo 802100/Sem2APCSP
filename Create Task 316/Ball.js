@@ -7,7 +7,7 @@ class Ball{
     this.acc = createVector(0,0.1);
     this.id = id;
     this.w = 20;
-    this.clr = color(random(255),random(255),random(255));
+    this.clr = color(250,0,250);
 
 
     }
@@ -71,7 +71,7 @@ class Ball{
   }else if(this.id === -1){
       if(mainball.isColliding()){
         console.log("collision");
-        gameState = 6;
+        gameState = 3;
       }
       //if hitting edge of screen
         if(this.loc.x < 0){
