@@ -1,3 +1,5 @@
+// Healing class (3/16)
+//Paddle Game
 class Healing{
   constructor(x,y,dx,dy){
     this.loc = createVector(x,y);

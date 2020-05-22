@@ -65,8 +65,9 @@ function startGame(){
   textSize(14);
   fill(255);
   text("Use the mouse to move the paddle and clear the screen of balls\n" +
-    "Don't let the balls touch the bottom of the paddle\n"+
-    "Otherwise you lose a life and new balls appear\n"+
+    "If balls hit the bottom of the paddle you lose a life and new balls appear\n"+
+    "Beware of the Deathball and dont hit it or youll lose instantly\n"+
+    "If you hit the green Healthballs then you get an extra life\n"+
     "Try and clear the screen with the least ammount of lives lost\n",180,400);
   //difficulty buttons
   runButtons1();

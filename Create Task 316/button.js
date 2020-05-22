@@ -1,6 +1,5 @@
-//Evangeline
-//9/25
-//Button class
+//Button class (3/16)
+//Paddle game
 class Button{
   constructor(x,y,w,h,msg,clr){
     this.loc = createVector(x,y);
@@ -15,7 +14,7 @@ class Button{
   }
 
   render(){
-    
+
     fill(this.clr);
     rect(this.loc.x,this.loc.y,this.w,this.h);
     textSize(20);
